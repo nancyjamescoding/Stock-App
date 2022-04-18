@@ -1,0 +1,16 @@
+.card:hover {
+    background: #FFFFFF;
+    border: 1px solid #3751FF;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.act {
+    background-color: green;
+}
+
+.deact {
+    color: green;
+}
+
+

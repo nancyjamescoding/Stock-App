@@ -1,0 +1,106 @@
+
+<app-navbar>
+</app-navbar>
+<div class="container mt-4">
+    <div class="col-md-12">
+        <div class="card m-3">
+            <h2>Order Requests</h2>
+            <table class="table table-responsive table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col px-2">Name</th>
+                        <th scope="col px-2">Email</th>
+                        <th scope="col px-2">Quantity</th>
+                        <th scope="col px-2">Status</th>
+
+                    </tr>
+                </thead>
+                <tbody class="justify-content-center">
+                    <img src="" alt="">
+                    <tr *ngFor="let order of orders; let i=index">
+                        <td class="px-2"> {{order.itemName}}</td>
+                        <td> {{order.supplierEmail}}</td>
+                        <td> {{order.quantity}}</td>
+                        <td>
+                            <div *ngIf="order.status; else notApproved">
+                                <a id="approved" type="button">
+                                    <span class="badge rounded-pill bg-info text-white p-2 approved-badge">Approved</span>
+                                </a>
+                            </div>
+                            
+                            <ng-template #notApproved>
+                                <a id="button1" type="button" (click)="onApprove(order.itemName)">
+                                    <span class="badge rounded-pill bg-info text-white p-2">Approve</span>
+                                </a>
+                            </ng-template>
+                        </td>
+                        <td>
+
+                            <div *ngIf="!order.status">
+                                <a id="button2" type="button" (click)="onDecline(order.itemName)">
+                                    <span class="badge rounded-pill bg-warning text-white p-2">Decline</span>
+                                </a>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Not payed -->
+
+
+<app-navbar>
+
+</app-navbar>
+<div class="container mt-4">
+    <div class="col-md-12">
+        <div class="card m-3">
+            <h2>Order Requests</h2>
+            <table class="table table-responsive table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col px-2">Name</th>
+                        <th scope="col px-2">Email</th>
+                        <th scope="col px-2">Quantity</th>
+                        <th scope="col px-2">Status</th>
+
+                    </tr>
+                </thead>
+                <tbody class="justify-content-center">
+                    <img src="" alt="">
+                    <tr *ngFor="let order of orders; let i=index">
+                        <td class="px-2"> {{order.itemName}}</td>
+                        <td> {{order.supplierEmail}}</td>
+                        <td> {{order.quantity}}</td>
+                        <td>
+                            <div *ngIf="order.status; else notApproved">
+                                <a id="approved" type="button">
+                                    <span class="badge rounded-pill bg-info text-white p-2 approved-badge">Approved</span>
+                                </a>
+                            </div>
+                            
+                            <ng-template #notApproved>
+                                <a id="button1" type="button" (click)="onApprove(order.itemName)">
+                                    <span class="badge rounded-pill bg-info text-white p-2">Approve</span>
+                                </a>
+                            </ng-template>
+                        </td>
+                        <td>
+
+                            <div *ngIf="!order.status">
+                                <a id="button2" type="button" (click)="onDecline(order.itemName)">
+                                    <span class="badge rounded-pill bg-warning text-white p-2">Decline</span>
+                                </a>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

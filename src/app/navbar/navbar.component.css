@@ -1,0 +1,195 @@
+/* navbars
+
+mat-toolbar {
+    background: #004a9f;
+    color: white;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 295px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 130px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    padding: 16px;
+    overflow: auto;
+}
+
+mat-sidenav-container {
+    height: 100vh;
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+.mat-icon {
+    margin-right: 8px;
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* .mat-sidenav-backdrop.mat-sidenav-shown {
+    background-color: transparent !important;
+} */
+
+
+/* .mat-drawer-shown {
+    visibility: hidden! important;
+}
+
+.fade modal-backdrop show {
+    visibility: hidden! important;
+}
+
+.modal-backdrop fade show {
+    opacity: 0;
+}
+
+.menu-button:hover {
+    color: rgb(152, 226, 220)
+} */
+
+
+/* ....................  */
+
+mat-toolbar {
+    background: #004A9F;
+    color: white;
+}
+
+mat-sidenav {
+    position: relative;
+    margin: 16px;
+    width: 255px;
+    border-right: none;
+    background: #004A9F;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 130px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    padding: 16px;
+    overflow: auto;
+}
+
+mat-sidenav-container {
+    height: 100vh;
+    position: absolute;
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+.mat-icon {
+    margin-right: 8px;
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mat-drawer-shown {
+    visibility: hidden ! important;
+}
+
+.fade modal-backdrop show {
+    visibility: hidden ! important;
+}
+
+.modal-backdrop fade show {
+    opacity: 0;
+}
+
+.menu-button:hover {
+    color: rgb(152, 226, 220)
+}
+
+.mat-sidenav-content {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* #navigation {
+    margin: -2px;
+    padding: -5px;
+    background-color: aquamarine;
+} */
+
+.mat-drawer-container {
+    background-color: rgb(241, 237, 237);
+    color: rgba(0, 0, 0, .87);
+}

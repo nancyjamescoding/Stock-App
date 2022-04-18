@@ -1,0 +1,6 @@
+{
+"/api": {
+"target": "https://stock-inv.herokuapp.com/v1/account/register/",
+"secure": false
+}
+}

@@ -1,0 +1,26 @@
+<app-navbar>
+
+</app-navbar>
+<div style="width: 500px; margin: auto;">
+    <div class="submit-form">
+        <div *ngIf="!isItemRequested">
+            <div class="form-group">
+                <label for="supplier">Item Name</label>
+                <input type="text" class="form-control" id="item_name" required [(ngModel)]="item.item_name" name="Item name" />
+            </div>
+            <div class="form-group">
+                <label for="email">Supplier Name</label>
+                <input class="form-control" id="email" required [(ngModel)]="item.s_name" name="Supplier name" />
+            </div>
+            <div class="form-group">
+                <label for="date">Supplier Email</label>
+                <input class="form-control" id="date" required [(ngModel)]="item.s_email" name="Supplir Email" />
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input class="form-control" id="quantity" required [(ngModel)]="item.quantity" name="quantity" />
+            </div>
+            <button (click)="onRequestitem()" type="submit" class="btn btn-primary mt-5">Request Item</button>
+        </div>
+    </div>
+</div>

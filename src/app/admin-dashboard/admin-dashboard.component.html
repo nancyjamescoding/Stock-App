@@ -1,0 +1,222 @@
+<app-navbar>
+
+</app-navbar>
+<div class="nav" class="container">
+
+    <div class="bodyadmin ">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row pt-2">
+                    <div class="col-md-3">
+                        <div class="card card-outline bg-light shadow mb-3 ">
+                            <p class="text-bold text-center text-muted h4 p-5">Clerks <br> <span class=" fs-1 fw-bold  py-4">{{clerks.length}}</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light shadow mb-3">
+                            <p class="text-bold text-center text-muted h4 p-5">Products <br> <span class=" fs-1 fw-bold  py-4">12</span></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card bg-light shadow mb-3">
+                            <p class="text-bold text-center text-muted h4 p-5"> Requests<br><span class=" fs-1 fw-bold  py-4">{{requests.length}}</span></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Top four cards code ends here-->
+
+                <div class="row mt-5">
+                    <div class="col-md-7">
+                        <div class="card linear-graph">
+
+                            <div>
+                                <canvas id="myChart" width="600" height="400"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5 mt-5">
+                        <div class="card linear-graph">
+                            <div>
+                                <canvas id="mChart" width="300" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- table to dispay all clerks  -->
+    <!-- {{myData|json}} -->
+    <div class="col-md-12 mt-3 mb-3">
+        <div class="container">
+            <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal ">Add Clerks</button>
+
+            <div class="col-md-12">
+                <div class="card m-3">
+                    <div class="card ">
+                        <table class="table table-responsive table-hover ">
+                            <thead>
+                                <tr>
+                                    <th scope="col px-3"></th>
+                                    <th scope="col px-2"></th>
+                                    <th scope="col px-2">Name</th>
+                                    <th scope="col px-2">Email</th>
+                                    <th scope="col px-2">Action</th>
+                                    <th scope="col px-2">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="justify-content-center">
+                                <img src="" alt="">
+                                <tr *ngFor="let  clerk of clerks ">
+                                    <td class="px-2"> {{clerk.id}}</td>
+                                    <td> <img width="32" height="32" src="https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg" alt="profile_pic"></td>
+                                    <td> {{clerk.username}}</td>
+                                    <td> {{clerk.email}}</td>
+                                    <div *ngIf="!clerk.is_active">
+                                        <td>
+                                            <a id="button1" type="button" (click)="onActivate(clerk.email)"> <span class="badge rounded-pill bg-info text-white p-2">
+                                Activate
+                    </span></a>
+                                        </td>
+                                    </div>
+
+                                    <div *ngIf="clerk.is_active">
+                                        <td>
+                                            <a id="button2" (click)="onDectivate(clerk.email)" type="button"> <span class="badge rounded-pill bg-warning text-white p-2">
+                                Inactivate
+                    </span></a>
+                                        </td>
+                                    </div>
+                                    <td class="px-2">
+                                        <a class="text-danger px-2" (click)="onDeleteClerk(clerk.email)">
+                                            <i class="fa fa-trash-alt text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" data-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-2" style="min-width:600px;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Clerks</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    .
+
+                    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 justify-content-center">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" />
+                                    <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                                        <div *ngIf="username?.errors?.['required']">Username is required</div>
+                                        <div *ngIf="username?.errors?.['minlength']">
+                                            Username must be at least 3 characters
+                                        </div>
+                                        <div *ngIf="username?.errors?.['maxlength']">
+                                            Username must be at most 20 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 justify-content-center">
+                                <div class="form-group">
+                                    <label for="full_name">FullName</label>
+                                    <input type="text" class="form-control" name="full_name" [(ngModel)]="form.full_name" required minlength="3" maxlength="20" #full_name="ngModel" />
+                                    <div class="alert-danger" *ngIf="full_name.errors && f.submitted">
+                                        <div *ngIf="full_name?.errors?.['required']">FullName is required</div>
+                                        <div *ngIf="full_name?.errors?.['minlength']">
+                                            Fullname must be at least 3 characters
+                                        </div>
+                                        <div *ngIf="username?.errors?.['maxlength']">
+                                            Fullname must be at most 20 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
+                            <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                                <div *ngIf="email?.errors?.['required']">Email is required</div>
+                                <div *ngIf="email?.errors?.['email']">
+                                    Email must be a valid email address
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="business">Business</label>
+                            <input type="text" class="form-control" name="business" [(ngModel)]="form.business" required minlength="3" maxlength="20" #business="ngModel" />
+                            <div class="alert-danger" *ngIf="business.errors && f.submitted">
+                                <div *ngIf="business?.errors?.['required']">Business name is required</div>
+                                <div *ngIf="business?.errors?.['minlength']">
+                                    business name must be at least 3 characters
+                                </div>
+                                <div *ngIf="username?.errors?.['maxlength']">
+                                    businessname must be at most 20 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label">Profile</label>
+                            <input type="file" class="form-control" name="avatar" [(ngModel)]="form.avatar" required #avatar="ngModel" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+                            <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                                <div *ngIf="password?.errors?.['required']">Password is required</div>
+                                <div *ngIf="password?.errors?.['minlength']">
+                                    Password must be at least 6 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password"> Confirm Password</label>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="form.password2" required minlength="6" #password2="ngModel" />
+                            <div class="alert-danger" *ngIf="password2.errors && f.submitted">
+                                <div *ngIf="password2?.errors?.['required']">Password is required</div>
+                                <div *ngIf="password2?.errors?.['minlength']">
+                                    Password must be at least 6 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <br>
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                            Adding Clerks Failed!<br />{{ errorMessage }}
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

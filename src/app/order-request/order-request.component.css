@@ -1,0 +1,30 @@
+.overlay{
+    background-color:lightskyblue;
+    padding-bottom: 5%;
+    height: 100%;
+}
+.all-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.quote-description {
+    font-size: larger;
+    /* font-family: 'Architects Daughter', cursive; */
+    font-weight: bold;
+    
+} 
+.card{
+    margin-bottom: 2%;
+    /* background-color:lightyellow; */
+    box-shadow: 2px 2px 3px 2px black;
+}
+#approved {
+    cursor: default;
+    pointer-events: none;
+    
+}
+
+.approved-badge {
+    background-color: #90EE90 !important;
+}
